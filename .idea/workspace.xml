@@ -19,11 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Javafx_14.xml" beforeDir="false" />
+    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="changes for tile">
+      <change afterPath="$PROJECT_DIR$/src/tile/blocks/Directions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/blocks/Entrance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roll-for-hacking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/roll-for-hacking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/Tile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -54,6 +54,7 @@
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="roll-for-hacking" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/roll-for-hacking" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -71,6 +72,14 @@
       <updated>1596819741782</updated>
       <workItem from="1596819747845" duration="1225000" />
     </task>
+    <task id="LOCAL-00001" summary="changes for tile">
+      <created>1596826719805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596826719805</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,10 +97,22 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes for tile" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for tile" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596828699750">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1596828699750" />
     <state x="129" y="59" key="MergeDialog" timestamp="1596824095358">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596824095358" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596826740302">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596826740302" />
   </component>
 </project>
