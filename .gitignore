@@ -1,5 +1,4 @@
 .idea/
-*.iml
 out/
 gen/
 idea-gitignore.jar
@@ -12,5 +11,6 @@ IgnoreLexer.java~
 .gradle
 .DS_Store
 launch.json
+roll-for-hacking.iml
 
 /verification
