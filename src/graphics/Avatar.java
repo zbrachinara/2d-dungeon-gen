@@ -11,7 +11,6 @@ import java.awt.event.KeyListener;
 public class Avatar extends Tile implements KeyListener {
 
     public int[] position;
-    public int[] room = new int[2];
 
     public ArrayList<Item> pocket;
 
@@ -26,18 +25,23 @@ public class Avatar extends Tile implements KeyListener {
     // returns based on whether or not it moves
     public boolean move(Direction direction) {
 
-        switch(direction) {
-            case UP:
-                if (position[1]==19) return false;
-                position[1]++; break;
-            case DOWN:
+        switch (direction) {
+            case UP -> {
+                if (position[1] == 19) return false;
+                position[1]++;
+            }
+            case DOWN -> {
                 if (position[1] == 0) return false;
-                position[1]--; break;
-            case LEFT:
+                position[1]--;
+            }
+            case LEFT -> {
                 if (position[0] == 0) return false;
                 position[0]--;
-            case RIGHT:
+            }
+            case RIGHT -> {
+                if (position[0] == 19) return false;
                 position[0]++;
+            }
         }
 
         return true;
@@ -57,6 +61,8 @@ public class Avatar extends Tile implements KeyListener {
             case 'd':
                 move(Direction.RIGHT);
         }
+
+        Updater.update();
 
     }
 

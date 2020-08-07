@@ -1,7 +1,7 @@
 package graphics;
 
 import tile.*;
-import tile.block.*;
+import tile.blocks.*;
 
 abstract class RoomGenerator {
 
