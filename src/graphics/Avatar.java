@@ -20,28 +20,6 @@ public class Avatar extends Tile implements KeyListener {
 
     }
 
-    // returns based on whether or not it moves
-    public boolean move(Direction direction) {
-
-        switch (direction) {
-            case UP -> {
-                location[1]++;
-            }
-            case DOWN -> {
-                location[1]--;
-            }
-            case LEFT -> {
-                location[0]--;
-            }
-            case RIGHT -> {
-                location[0]++;
-            }
-        }
-
-        return true;
-
-    }
-
     @Override
     public void keyTyped(KeyEvent e) {
 
