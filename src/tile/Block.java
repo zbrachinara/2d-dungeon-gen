@@ -18,10 +18,13 @@ public abstract class Block extends Tile {
 
         GridPane pane = new GridPane();
         FileInputStream imageGrid = new FileInputStream("resources/Grid2.jpg");
+        Image grid;
         switch (type){
             case 1:
-                Image grid = new Image(imageGrid);
+                grid = new Image(imageGrid);
                 break;
+            default:
+                grid = new Image("");
         }
         pane.add(new ImageView(grid), Xcoord, Ycoord);
 
