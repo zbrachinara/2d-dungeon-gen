@@ -1,6 +1,7 @@
 package graphics;
 
 import javafx.event.Event;
+import javafx.scene.Scene;
 import tile.Block;
 import tile.Item;
 import tile.Tile;
@@ -15,14 +16,30 @@ import java.util.Set;
 public class Updater {
 
 
+    private static char inventoryKeyPress = 'e';
+
     public enum Direction {UP, DOWN, LEFT, RIGHT}
 
     static int[] currentRoom = new int[]{0, 0};
     public static Room[][] rooms;
     static Avatar avatar;
     static Tile standingOn;
+    static boolean isInventoryOpen = false;
 
     public static void update(KeyEvent event) {
+
+        if(event.getKeyChar() == inventoryKeyPress && isInventoryOpen == false) {
+            isInventoryOpen = true;
+            event.consume();
+            viewInventory();
+        }
+
+        if(isInventoryOpen) {
+            if(event.getKeyChar() == inventoryKeyPress) {
+                isInventoryOpen = false;
+                closeInventory();
+            }
+        }
         move(event.getKeyChar());
         standingOn = rooms[currentRoom[0]][currentRoom[1]].tiles[avatar.location[0]][avatar.location[1]];
         pickupItem();
@@ -88,7 +105,17 @@ public class Updater {
     }
 
     private static void viewInventory() {
-        
+        int index = 0;
+        for(Item item : avatar.pocket) {
+            System.out.print(index);
+            System.out.println(item.toString());
+            index++;
+        }
+    }
+
+
+    private static void closeInventory() {
+
     }
 
 }
