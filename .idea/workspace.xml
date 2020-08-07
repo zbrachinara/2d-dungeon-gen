@@ -23,6 +23,7 @@
       <change afterPath="$PROJECT_DIR$/src/tile/blocks/Directions.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/tile/blocks/Entrance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/Block.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596819741782</updated>
-      <workItem from="1596819747845" duration="1225000" />
+      <workItem from="1596819747845" duration="5456000" />
     </task>
     <task id="LOCAL-00001" summary="changes for tile">
       <created>1596826719805</created>
