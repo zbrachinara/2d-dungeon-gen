@@ -61,10 +61,18 @@ public class Updater {
 
         if (isObstacle(direction)) {
             switch (direction) {
-                case UP -> avatar.location[1]++;
-                case DOWN -> avatar.location[1]--;
-                case LEFT -> avatar.location[0]--;
-                case RIGHT -> avatar.location[0]++;
+                case UP:
+                    avatar.location[1]++;
+                    break;
+                case DOWN:
+                    avatar.location[1]--;
+                    break;
+                case LEFT:
+                    avatar.location[0]--;
+                    break;
+                case RIGHT:
+                    avatar.location[0]++;
+                    break;
             }
             return true;
         }
