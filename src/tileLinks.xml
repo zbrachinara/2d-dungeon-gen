@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tiles>
+    <items>
+    </items>
+    <blocks>
+        <block>
+            <path>
+                tile.blocks.Entrance
+            </path>
+            <name>
+                Entrance
+            </name>
+        </block>
+    </blocks>
+</tiles>
