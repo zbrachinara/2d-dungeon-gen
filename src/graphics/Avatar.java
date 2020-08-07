@@ -19,23 +19,22 @@ public class Avatar extends Tile implements KeyListener {
 
     public Avatar() {
 
-        position = new int[]{25, 25};
+        position = new int[]{10, 10};
 
     }
 
     // returns based on whether or not it moves
     public boolean move(Direction direction) {
 
-        if (position[0] == 0 || position[0] == 49 || position[1] == 0 || position[1] == 49) {
-            return false;
-        }
-
         switch(direction) {
             case UP:
-                position[1]++;
+                if (position[1]==19) return false;
+                position[1]++; break;
             case DOWN:
-                position[1]--;
+                if (position[1] == 0) return false;
+                position[1]--; break;
             case LEFT:
+                if (position[0] == 0) return false;
                 position[0]--;
             case RIGHT:
                 position[0]++;
@@ -70,4 +69,5 @@ public class Avatar extends Tile implements KeyListener {
     public void keyReleased(KeyEvent e) {
 
     }
+
 }
