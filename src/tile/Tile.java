@@ -6,6 +6,6 @@ public abstract class Tile {
 
     public String name;
     public Image texture;
-    public int[][] location;
+    public int[] location;
 
 }

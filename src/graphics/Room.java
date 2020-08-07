@@ -4,7 +4,7 @@ import tile.Tile;
 
 public class Room {
 
-    Tile[][] tiles = new Tile[50][50];
+    public Tile[][] tiles = new Tile[50][50];
 
     public Room() {
 

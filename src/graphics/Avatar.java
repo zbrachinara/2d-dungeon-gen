@@ -1,5 +1,7 @@
 package graphics;
 
+import graphics.Updater.Direction;
+
 import tile.Item;
 import tile.Tile;
 
@@ -10,15 +12,11 @@ import java.awt.event.KeyListener;
 
 public class Avatar extends Tile implements KeyListener {
 
-    public int[] position;
-
     public ArrayList<Item> pocket;
-
-    enum Direction {UP, DOWN, LEFT, RIGHT}
 
     public Avatar() {
 
-        position = new int[]{10, 10};
+        location = new int[]{10, 10};
 
     }
 
@@ -27,20 +25,16 @@ public class Avatar extends Tile implements KeyListener {
 
         switch (direction) {
             case UP -> {
-                if (position[1] == 19) return false;
-                position[1]++;
+                location[1]++;
             }
             case DOWN -> {
-                if (position[1] == 0) return false;
-                position[1]--;
+                location[1]--;
             }
             case LEFT -> {
-                if (position[0] == 0) return false;
-                position[0]--;
+                location[0]--;
             }
             case RIGHT -> {
-                if (position[0] == 19) return false;
-                position[0]++;
+                location[0]++;
             }
         }
 
@@ -51,18 +45,7 @@ public class Avatar extends Tile implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
 
-        switch (e.getKeyChar()) {
-            case 'w':
-                move(Direction.UP);
-            case 'a':
-                move(Direction.LEFT);
-            case 's':
-                move(Direction.DOWN);
-            case 'd':
-                move(Direction.RIGHT);
-        }
-
-        Updater.update();
+        Updater.update(e);
 
     }
 
