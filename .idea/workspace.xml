@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/entrance.png" afterDir="false" />
+    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="updated Updater also added item classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/RoomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/RoomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/Updater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Updater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,27 +53,12 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="tile.Items" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Vincent Xie\Documents\GitHub\roll-for-hacking\src\resources" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="roll-for-hacking" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Administrator 125\Downloads\openjfx-14.0.2.1_windows-x64_bin-sdk\javafx-sdk-14.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/roll-for-hacking" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596842982159</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated Updater also added item classes">
+      <created>1596845282253</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1596845282253</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,13 +130,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changes for tile" />
@@ -152,24 +143,61 @@
     <MESSAGE value="changed Avatar.java" />
     <MESSAGE value="changed Room.java" />
     <MESSAGE value="updated Updater" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated Updater" />
+    <MESSAGE value="updated Updater also added item classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Updater also added item classes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596828699750">
+    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596908143582">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1596828699750" />
+    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1596908143582" />
     <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596837971666">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.768@0.0.1366.768" timestamp="1596837971666" />
-    <state x="129" y="59" key="MergeDialog" timestamp="1596843016816">
+    <state width="1323" height="191" key="GridCell.Tab.0.bottom" timestamp="1596913631592">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596843016816" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596843003051">
+    <state width="1323" height="191" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596913631592" />
+    <state width="1323" height="191" key="GridCell.Tab.0.center" timestamp="1596913631591">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596843003051" />
+    <state width="1323" height="191" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1596913631591" />
+    <state width="1323" height="191" key="GridCell.Tab.0.left" timestamp="1596913631591">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="191" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1596913631591" />
+    <state width="1323" height="191" key="GridCell.Tab.0.right" timestamp="1596913631592">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1596913631592" />
+    <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1596910963554">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
+    <state width="1323" height="238" key="GridCell.Tab.1.center" timestamp="1596910963554">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
+    <state width="1323" height="238" key="GridCell.Tab.1.left" timestamp="1596910963554">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
+    <state width="1323" height="238" key="GridCell.Tab.1.right" timestamp="1596910963554">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
+    <state x="129" y="59" key="MergeDialog" timestamp="1596913644740">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596913644740" />
+    <state x="321" y="145" key="MultipleFileMergeDialog" timestamp="1596845377654">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596845377654" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596845408108">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596845408108" />
   </component>
 </project>

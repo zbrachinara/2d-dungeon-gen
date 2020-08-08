@@ -6,7 +6,7 @@ import tile.Item;
 public class Sword extends Item {
 
     public Sword(int[] location, boolean inWorld) {
-        super("Sword", new Image("resources/sword_temp.png"), location, inWorld);
+        super("Sword", new Image("resources/Sword.png"), location, inWorld);
     }
 
 }

@@ -14,6 +14,7 @@ import java.util.Random;
 
 public abstract class RoomGenerator {
 
+
     public static Room generateRoom(RoomType roomType) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Room out = new Room(roomType);
         Random random = new Random();
@@ -25,13 +26,13 @@ public abstract class RoomGenerator {
 
         //TODO: add the entrances
 
-        //out.addTile(0, 0,  );
+        ///out.addTile(0, 0, );
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
-        chanceMap.put("Axe", .5f);
-        chanceMap.put("Shield", .4f);
-        chanceMap.put("Sword:", .05f);
+        chanceMap.put("Axe", .1f);
+        chanceMap.put("Shield", .1f);
+        chanceMap.put("Sword", .1f);
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
