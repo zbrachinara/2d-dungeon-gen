@@ -4,8 +4,9 @@ import logic.Room.RoomType;
 
 import tile.Tile;
 import tile.TileLinker;
-import tile.blocks.Directions;
 import tile.blocks.Entrance;
+
+import logic.Updater.Direction;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public abstract class RoomGenerator {
 
         //TODO: add the entrances
         int[] bruh = {0, 0};
-        out.addTile(0, 0, new Entrance(Directions.SOUTH, bruh));
+        out.addTile(0, 0, new Entrance(Updater.Direction.DOWN, bruh));
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();

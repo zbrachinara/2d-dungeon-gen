@@ -64,8 +64,6 @@ public class Main extends Application {
         Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
         currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
 
-
-
         CellLoader.loadAll();
         root.getChildren().add(CellLoader.gameDisplay);
         CellLoader.gameDisplay.setAlignment(Pos.CENTER);

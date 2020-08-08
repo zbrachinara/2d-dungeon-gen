@@ -48,6 +48,8 @@ public class Updater  {
 
     public static void update(KeyEvent event) {
 
+        System.out.println(event.getText());
+
         toggleInventory(event);
         move(event);
         standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
@@ -61,8 +63,8 @@ public class Updater  {
 
     private static boolean interactWithEntrance(KeyEvent event) {
         if (standingOn instanceof Entrance ) {
-            if (event.getText().equals("SPACE")) {
-                // go to next room
+            if (event.getText().equals(" ")) {
+                return moveRooms(((Entrance) standingOn).direction);
             } else {
                 if (!isAdvNotifOpen) {
 
@@ -76,6 +78,27 @@ public class Updater  {
             Main.root.getChildren().remove(advNotification);
         }
         return false;
+    }
+
+    public static boolean moveRooms(Direction direction) {
+        try {
+            switch (direction) {
+                case RIGHT:
+                    currentRoomID[0]++;
+                case LEFT:
+                    currentRoomID[0]--;
+                case UP:
+                    currentRoomID[1]--;
+                case DOWN:
+                    currentRoomID[1]++;
+            }
+            currentRoom = rooms[currentRoomID[0]][currentRoomID[1]];
+            CellLoader.loadAll();
+            return true;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+
     }
 
     private static boolean toggleInventory(javafx.scene.input.KeyEvent e) {
