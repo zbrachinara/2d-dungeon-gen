@@ -12,10 +12,10 @@ public class TileLinker {
 
     public static HashMap<String, Class<?>> availableBlocks = new HashMap<>();
     public static HashMap<String, Class<?>> availableItems = new HashMap<>();
+    public static HashMap<String, Class<?>> availableTiles = new HashMap<>();
     static Element rootElement;
     static NodeList blocksElements;
     static NodeList itemsElements;
-
 
     static {
         try {
@@ -35,12 +35,14 @@ public class TileLinker {
             if (blocksElements.item(i).getNodeType() == Node.ELEMENT_NODE) {
                 tempClass = Class.forName(getNodeContent(getFirstChildByName(blocksElements.item(i), "location")));
                 availableBlocks.put(getNodeContent(getFirstChildByName(blocksElements.item(i), "name")), tempClass);
+                availableTiles.put(getNodeContent(getFirstChildByName(blocksElements.item(i), "name")), tempClass);
             }
         }
         for (int i = 0; i < itemsElements.getLength(); i++) {
             if (itemsElements.item(i).getNodeType() == Node.ELEMENT_NODE) {
                 tempClass = Class.forName(getNodeContent(getFirstChildByName(itemsElements.item(i), "location")));
                 availableItems.put(getNodeContent(getFirstChildByName(itemsElements.item(i), "name")), tempClass);
+                availableTiles.put(getNodeContent(getFirstChildByName(itemsElements.item(i), "name")), tempClass);
             }
         }
 

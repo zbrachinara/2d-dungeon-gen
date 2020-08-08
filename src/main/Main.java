@@ -1,5 +1,6 @@
 package main;
 
+import graphics.Avatar;
 import graphics.Room;
 import graphics.RoomGenerator;
 import graphics.Updater;
@@ -49,10 +50,11 @@ public class Main extends Application { // main class
 
         TileLinker.load();
         Updater.rooms = rooms;
+        Updater.avatar = new Avatar();
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                rooms[i][j] = RoomGenerator.generateRoom();
+//                rooms[i][j] = RoomGenerator.generateRoom();
             }
         }
 

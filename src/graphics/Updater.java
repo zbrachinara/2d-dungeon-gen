@@ -18,7 +18,7 @@ public class Updater {
 
     static int[] currentRoom = new int[]{0, 0};
     public static Room[][] rooms;
-    static Avatar avatar;
+    public static Avatar avatar;
     static Tile standingOn;
     static boolean isInventoryOpen = false;
 
@@ -37,7 +37,7 @@ public class Updater {
             }
         }
         move(event.getKeyChar());
-        standingOn = rooms[currentRoom[0]][currentRoom[1]].tiles[avatar.location[0]][avatar.location[1]];
+        standingOn = rooms[currentRoom[0]][currentRoom[1]].getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
         if(standingOn instanceof Entrance) {
             System.out.println("standing on entrance");
@@ -88,7 +88,7 @@ public class Updater {
 
         Tile objectTo;
         try {
-            objectTo = rooms[currentRoom[0]][currentRoom[1]].tiles[avatar.location[0] + difference[0]][avatar.location[1] + difference[1]];
+            objectTo = rooms[currentRoom[0]][currentRoom[1]].getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
