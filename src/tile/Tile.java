@@ -10,14 +10,17 @@ public abstract class Tile {
     public Image texture;
     public int[] location;
 
-    public static Image back = new Image("resources/Grid_YES");
+    public static Image back = new Image("resources/Grid_YES.png");
 
     public StackPane load() {
-        StackPane out = new StackPane();
-
-        out.getChildren().add(new ImageView(back));
+        StackPane out = loadBlank();
         out.getChildren().add(new ImageView(texture));
+        return out;
+    }
 
+    public static StackPane loadBlank() {
+        StackPane out = new StackPane();
+        out.getChildren().add(new ImageView(back));
         return out;
     }
 

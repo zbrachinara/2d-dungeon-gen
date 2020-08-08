@@ -30,9 +30,10 @@ public class Updater implements KeyListener {
 
     public enum Direction {UP, DOWN, LEFT, RIGHT}
 
-    static int[] currentRoom = new int[]{0, 0};
-    public static Room[][] rooms;
-    public static Avatar avatar;
+    public static int[] currentRoomID = new int[]{0, 0};
+    public static Room[][] rooms = new Room[2][2];
+    public static Room currentRoom = rooms[currentRoomID[0]][currentRoomID[1]];
+    public static Avatar avatar = new Avatar();
     static Tile standingOn;
     static boolean isInventoryOpen = false;
 
@@ -40,7 +41,7 @@ public class Updater implements KeyListener {
 
         toggleInventory(event);
         move(event.getKeyChar());
-        standingOn = rooms[currentRoom[0]][currentRoom[1]].getTile(avatar.location[0], avatar.location[1]);
+        standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
         if(standingOn instanceof Entrance) {
             System.out.println("standing on entrance");
@@ -114,7 +115,7 @@ public class Updater implements KeyListener {
 
         Tile objectTo;
         try {
-            objectTo = rooms[currentRoom[0]][currentRoom[1]].getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
+            objectTo = currentRoom.getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }

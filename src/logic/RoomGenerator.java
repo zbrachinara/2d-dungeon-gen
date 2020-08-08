@@ -22,15 +22,20 @@ public abstract class RoomGenerator {
 
         // add the entrances
 
-
+        // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
+        chanceMap.put("Axe", .1f);
+        chanceMap.put("Shield", .05f);
+        chanceMap.put("Sword:", .1f);
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (out.getTile(i, j) != null) {
                     Tile addedTile = determineNormalTile(random.nextFloat(), chanceMap);
-                    addedTile.location = new int[]{i, j};
-                    out.addTile(i, j, addedTile);
+                    if (addedTile != null) {
+                        addedTile.location = new int[]{i, j};
+                        out.addTile(i, j, addedTile);
+                    }
                 }
             }
         }
@@ -48,11 +53,7 @@ public abstract class RoomGenerator {
                 out = (Tile) TileLinker.availableTiles.get(i).getDeclaredConstructor().newInstance();
             }
         }
-        if (out == null) {
-            throw new IllegalArgumentException("Check your chanceMap or update processChanceMap in graphics.RoomGenerator");
-        } else {
-            return out;
-        }
+        return out;
 
     }
 
@@ -67,7 +68,7 @@ public abstract class RoomGenerator {
 
         }
         if (totalChance > 1) {
-            throw new IllegalArgumentException("The chances of each Tile are greater than 100, go back and fix it in graphics.RoomGenerator");
+            throw new IllegalArgumentException("The total chance for spawn is greater than 1, go back and fix it in graphics.RoomGenerator");
         }
         return outMap;
 
