@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="">
+    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="updated Updater">
+      <change afterPath="$PROJECT_DIR$/src/tile/items/Axe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/items/Shield.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/items/Sword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/Updater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Updater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -44,30 +46,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Vincent Xie\Documents\GitHub\roll-for-hacking\src\resources" />
-      <recent name="C:\Users\Vincent Xie\Documents\GitHub\roll-for-hacking\src\tile\blocks" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tile.Items" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Vincent Xie\Documents\GitHub\roll-for-hacking\src\resources" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
@@ -99,7 +85,35 @@
       <option name="project" value="LOCAL" />
       <updated>1596826719805</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="made major changes to updater class">
+      <created>1596838681844</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596838681844</updated>
+    </task>
+    <task id="LOCAL-00003" summary="changed Avatar.java">
+      <created>1596838712578</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596838712578</updated>
+    </task>
+    <task id="LOCAL-00004" summary="changed Room.java">
+      <created>1596838738132</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596838738132</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated Updater">
+      <created>1596842982126</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596842982159</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,30 +124,37 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changes for tile" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes for tile" />
+    <MESSAGE value="made major changes to updater class" />
+    <MESSAGE value="changed Avatar.java" />
+    <MESSAGE value="changed Room.java" />
+    <MESSAGE value="updated Updater" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Updater" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596828699750">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1596828699750" />
-    <state x="129" y="59" key="MergeDialog" timestamp="1596824095358">
+    <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596837971666">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596824095358" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596826740302">
+    <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.768@0.0.1366.768" timestamp="1596837971666" />
+    <state x="129" y="59" key="MergeDialog" timestamp="1596843016816">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596826740302" />
+    <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596843016816" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596843003051">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1596843003051" />
   </component>
 </project>
