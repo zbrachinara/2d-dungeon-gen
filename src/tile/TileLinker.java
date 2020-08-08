@@ -4,16 +4,18 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.xml.sax.SAXException;
 
 public class TileLinker {
 
-    public static ArrayList<Class<?>> availableBlocks = new ArrayList<>();
-    public static ArrayList<Class<?>> availableItems = new ArrayList<>();
+    public static HashMap<String, Class<?>> availableBlocks = new HashMap<>();
+    public static HashMap<String, Class<?>> availableItems = new HashMap<>();
     static Element rootElement;
     static NodeList blocksElements;
     static NodeList itemsElements;
+
 
     static {
         try {
@@ -28,15 +30,30 @@ public class TileLinker {
 
     public static void load() throws ClassNotFoundException {
 
+        Class<?> tempClass;
         for (int i = 0; i < blocksElements.getLength(); i++) {
-            if (blocksElements.item(i).getNodeType() == Node.ELEMENT_NODE)
-                availableBlocks.add(Class.forName(((Element) blocksElements.item(i)).getElementsByTagName("location").item(0).getTextContent().trim()));
+            if (blocksElements.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                tempClass = Class.forName(getNodeContent(getFirstChildByName(blocksElements.item(i), "location")));
+                availableBlocks.put(getNodeContent(getFirstChildByName(blocksElements.item(i), "name")), tempClass);
+            }
         }
         for (int i = 0; i < itemsElements.getLength(); i++) {
-            if (itemsElements.item(i).getNodeType() == Node.ELEMENT_NODE)
-                availableItems.add(Class.forName(((Element) itemsElements.item(i)).getElementsByTagName("location").item(0).getTextContent().trim()));
+            if (itemsElements.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                tempClass = Class.forName(getNodeContent(getFirstChildByName(itemsElements.item(i), "location")));
+                availableItems.put(getNodeContent(getFirstChildByName(itemsElements.item(i), "name")), tempClass);
+            }
         }
 
+        main.Main.do_nothing(); // debugging
+
+    }
+
+    private static Node getFirstChildByName(Node parent, String find) {
+        return ((Element) parent).getElementsByTagName(find).item(0);
+    }
+
+    private static String getNodeContent(Node in) {
+        return in.getTextContent().trim();
     }
 
 }

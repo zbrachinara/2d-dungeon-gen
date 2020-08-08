@@ -47,14 +47,14 @@ public class Main extends Application { // main class
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        TileLinker.load();
+        Updater.rooms = rooms;
+
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 rooms[i][j] = RoomGenerator.generateRoom();
             }
         }
-
-        TileLinker.load();
-        Updater.rooms = rooms;
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");

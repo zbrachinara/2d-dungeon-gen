@@ -1,17 +1,13 @@
 package graphics;
 
-import javafx.event.Event;
-import javafx.scene.Scene;
 import tile.Block;
 import tile.Item;
 import tile.Tile;
 import tile.blocks.Entrance;
 
 import java.awt.event.KeyEvent;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Updater {
 
@@ -81,10 +77,10 @@ public class Updater {
     }
 
     private static boolean isObstacle(Direction direction) {
-        boolean verticalMove = direction == Direction.UP || direction == Direction.DOWN;
+        boolean movingVertically = direction == Direction.UP || direction == Direction.DOWN;
         int[] difference = new int[2];
 
-        if (verticalMove) {
+        if (movingVertically) {
             difference[1] = direction == Direction.UP ? 1 : -1;
         } else {
             difference[0] = direction == Direction.RIGHT ? 1 : -1;
@@ -98,7 +94,7 @@ public class Updater {
         }
 
         if (objectTo instanceof Block) {
-            if (!((Block) objectTo).transparent) return false;
+            if (!((Block) objectTo).canMoveThrough) return false;
         }
 
         return true;
@@ -128,5 +124,5 @@ public class Updater {
 
 }
 
-        
+
 

@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 public abstract class Block extends Tile {
 
     public int[] position;
-    public boolean transparent; // can the block be passed through (NOT SEE THROUGH!!!!!)
+    public boolean canMoveThrough;
     Pane root = new Pane();
 
     public static void blockGen(int type, int Xcoord, int Ycoord) throws FileNotFoundException {
