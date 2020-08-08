@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="updated Updater also added item classes">
+    <list default="true" id="988eb44f-09df-4b5c-89f3-35e0fbc67799" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/Updater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Updater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/RoomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/RoomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Entrance  .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/entrance.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/entrance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/blocks/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/blocks/Entrance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +42,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1fpXPqhBcBCXqyNplqhV8kexpJZ" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -58,7 +63,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="roll-for-hacking" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Administrator 125\Downloads\openjfx-14.0.2.1_windows-x64_bin-sdk\javafx-sdk-14.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/out/production/roll-for-hacking" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,46 +152,55 @@
     <option name="LAST_COMMIT_MESSAGE" value="updated Updater also added item classes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596908143582">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state x="-1727" y="53" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596916290864">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="137" y="39" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1596908143582" />
+    <state x="-1727" y="53" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916290864" />
     <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596837971666">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="466" y="278" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.768@0.0.1366.768" timestamp="1596837971666" />
-    <state width="1323" height="191" key="GridCell.Tab.0.bottom" timestamp="1596913631592">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1596916302229">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="191" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596913631592" />
-    <state width="1323" height="191" key="GridCell.Tab.0.center" timestamp="1596913631591">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916302229" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1596916302229">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="191" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1596913631591" />
-    <state width="1323" height="191" key="GridCell.Tab.0.left" timestamp="1596913631591">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916302229" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1596916302228">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="191" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1596913631591" />
-    <state width="1323" height="191" key="GridCell.Tab.0.right" timestamp="1596913631592">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916302228" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1596916302229">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="191" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1596913631592" />
-    <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1596910963554">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916302229" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1596916236621">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
-    <state width="1323" height="238" key="GridCell.Tab.1.center" timestamp="1596910963554">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916236621" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1596916236621">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
-    <state width="1323" height="238" key="GridCell.Tab.1.left" timestamp="1596910963554">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916236621" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1596916236621">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
-    <state width="1323" height="238" key="GridCell.Tab.1.right" timestamp="1596910963554">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916236621" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1596916236621">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1596910963554" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596916236621" />
     <state x="129" y="59" key="MergeDialog" timestamp="1596913644740">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -195,6 +209,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1596845377654" />
+    <state x="-1480" y="99" key="SettingsEditor" timestamp="1596915934507">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1480" y="99" key="SettingsEditor/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1596915934507" />
     <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1596845408108">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
