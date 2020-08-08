@@ -22,6 +22,8 @@ public abstract class RoomGenerator {
 
         //TODO: add the entrances
 
+        //out.addTile(0, 0,  );
+
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
         chanceMap.put("Axe", .5f);
