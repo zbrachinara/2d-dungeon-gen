@@ -9,7 +9,7 @@ public class Room {
         REGULAR_ROOM
     }
 
-    Tile[][] tiles = new Tile[20][20];
+    public Tile[][] tiles = new Tile[20][20];
     public RoomType type;
 
     public Room(RoomType type) {

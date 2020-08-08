@@ -1,5 +1,6 @@
 package logic;
 
+import graphics.CellLoader;
 import tile.Avatar;
 import tile.Block;
 import tile.Item;
@@ -68,12 +69,20 @@ public class Updater  {
         Direction direction = characterDirectionMap.get(keyInput.getText().charAt(0));
 
         if (isObstacle(direction)) {
+            int[] difference = new int[2];
             switch (direction) {
-                case UP -> avatar.location[1]++;
-                case DOWN -> avatar.location[1]--;
-                case LEFT -> avatar.location[0]--;
-                case RIGHT -> avatar.location[0]++;
+                case UP -> difference[1] = -1;
+                case DOWN -> difference[1] = 1;
+                case LEFT -> difference[0] = -1;
+                case RIGHT -> difference[0] = 1;
             }
+
+            currentRoom.tiles[avatar.location[0]][avatar.location[1]] = null;
+            avatar.location = new int[]{avatar.location[0] + difference[0], avatar.location[1] + difference[1]};
+            currentRoom.addTile(avatar.location[0], avatar.location[1], avatar);
+            CellLoader.loadCell(avatar.location[0], avatar.location[1]);
+            CellLoader.loadCell(avatar.location[0] - difference[0], avatar.location[1] - difference[1]);
+            
             return true;
         }
         return false;
@@ -85,7 +94,7 @@ public class Updater  {
         int[] difference = new int[2];
 
         if (movingVertically) {
-            difference[1] = direction == Direction.UP ? 1 : -1;
+            difference[1] = direction == Direction.UP ? -1 : 1;
         } else {
             difference[0] = direction == Direction.RIGHT ? 1 : -1;
         }
