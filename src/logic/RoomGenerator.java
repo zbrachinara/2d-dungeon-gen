@@ -4,7 +4,10 @@ import logic.Room.RoomType;
 
 import tile.Tile;
 import tile.TileLinker;
+import tile.blocks.Directions;
+import tile.blocks.Entrance;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Random;
@@ -32,8 +35,8 @@ public abstract class RoomGenerator {
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (out.getTile(i, j) != null) {
-                    Tile addedTile = determineNormalTile(random.nextFloat(), chanceMap);
+                if (out.getTile(i, j) == null) {
+                    Tile addedTile = determineNormalTile(random.nextFloat(), chanceMap, new int[]{i, j});
                     if (addedTile != null) {
                         addedTile.location = new int[]{i, j};
                         out.addTile(i, j, addedTile);
@@ -45,7 +48,7 @@ public abstract class RoomGenerator {
         return out;
     }
 
-    private static Tile determineNormalTile(float generated, HashMap<String, Float> chanceMap) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    private static Tile determineNormalTile(float generated, HashMap<String, Float> chanceMap, int[] position) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 
         Tile out = null;
         Float chance = 1f;
@@ -53,14 +56,24 @@ public abstract class RoomGenerator {
         for (String i : chanceMap.keySet()) {
             try {
                 if (chanceMap.get(i) > generated && chanceMap.get(i) < chance) {
-                    out = (Tile) TileLinker.availableTiles.get(i).getDeclaredConstructor().newInstance();
+                    Class<?> tileClass = TileLinker.availableTiles.get(i);
+                    System.out.println(tileClass.getSuperclass().getName());
+                    instantiateTile(tileClass, position);
+                    chance = chanceMap.get(i);
                 }
-            } catch (NullPointerException e) {
-                out = null;
-            }
+            } catch (NullPointerException ignored) {}
         }
         return out;
 
+    }
+
+    private static Tile instantiateTile(Class<?> in, int[] position) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, TileNotFoundException {
+        if (in.getSuperclass().getName().equals("tile.Item")) {
+            return (Tile) in.getDeclaredConstructor(int[].class, boolean.class).newInstance(position, true);
+        } else if (in.getSuperclass().getName().equals("tile.Block")) {
+            // TODO: Fill this in
+        }
+        throw new TileNotFoundException("Go back and fix your stupid mistake (logic.RoomGenerator)");
     }
 
     private static <T extends Object> HashMap<T, Float> processChanceMap(HashMap<T, Float> chanceMap) {
@@ -74,7 +87,7 @@ public abstract class RoomGenerator {
 
         }
         if (totalChance > 1) {
-            throw new IllegalArgumentException("The total chance for spawn is greater than 1, go back and fix it in graphics.RoomGenerator");
+            throw new IllegalArgumentException("The total chance for spawn is greater than 1, go back and fix it in graphics.RoomGenerator.chanceMap");
         }
         return outMap;
 

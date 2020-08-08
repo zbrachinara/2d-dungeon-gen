@@ -1,5 +1,7 @@
 package tile;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 public class Avatar extends Tile {
@@ -8,7 +10,8 @@ public class Avatar extends Tile {
 
     public Avatar() {
 
-        location = new int[]{10, 10};
+        // TODO: Add the correct image for the Avatar
+        super("Avatar", new Image("resources/Avatar.png"), new int[]{10, 10});
 
     }
 

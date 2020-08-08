@@ -4,22 +4,27 @@ import javafx.scene.image.Image;
 import tile.Block;
 
 public class Entrance extends Block {
-    public Image texture;
 
-    public Entrance(Directions direction) {
+    public Entrance(Directions direction, int[] location) {
+        // replaced getBackImage with new Image for now
+        super("Entrance", new Image("resources/entrance.png"), location, true);
+        Image texture;
+
+
+    }
+
+    private static Image getBackImage(Directions direction) {
         switch(direction) {
             case NORTH:
-                texture = new Image("");
-                break;
+                return new Image("");
             case SOUTH:
-                texture = new Image("");
-                break;
+                return new Image("");
             case EAST:
-                texture = new Image("");
-                break;
+                return new Image("");
             case WEST:
-                texture = new Image("");
-                break;
+                return new Image("");
+            default:
+                return new Image("");
         }
     }
 

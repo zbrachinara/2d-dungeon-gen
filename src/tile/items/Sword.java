@@ -5,8 +5,8 @@ import tile.Item;
 
 public class Sword extends Item {
 
-    public Image texture = new Image("resources/sword_temp.png");
-
-    public Sword() {}
+    public Sword(int[] location, boolean inWorld) {
+        super("Sword", new Image("resources/sword_temp.png"), location, inWorld);
+    }
 
 }

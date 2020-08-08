@@ -5,8 +5,8 @@ import tile.Item;
 
 public class Shield extends Item {
 
-    public Image texture = new Image("resources/shield_temp.png");
-
-    public Shield() {}
+    public Shield(int[] location, boolean inWorld) {
+        super("Shield", new Image("resources/shield_temp.png"), location, inWorld);
+    }
 
 }

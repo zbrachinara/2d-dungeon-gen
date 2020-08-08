@@ -1,12 +1,12 @@
 package tile.items;
 
 import javafx.scene.image.Image;
-import tile.Tile;
+import tile.Item;
 
-public class Axe extends Tile {
+public class Axe extends Item {
 
-    public Image texture = new Image("resources/axe_temp.png");
-
-    public Axe() {}
+    public Axe(int[] location, boolean inWorld) {
+        super("Axe", new Image("resources/axe_temp.png"), location, inWorld);
+    }
 
 }
