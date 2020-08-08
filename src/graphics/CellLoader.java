@@ -16,6 +16,7 @@ public class CellLoader {
             if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {
                 loaded.getChildren().add(Updater.avatar.load());
             }
+            gameDisplay.add(loaded, posX, posY);
         } catch (NullPointerException e) {
             StackPane loaded = Tile.loadBlank();
             if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {

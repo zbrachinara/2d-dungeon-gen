@@ -117,7 +117,7 @@ public class Updater  {
 
     private static void pickupItem() {
         if(standingOn instanceof Item) {
-            avatar.pocket.add((Item)standingOn);
+            avatar.pocket.add((Item) standingOn);
         }
         System.out.println("picked up item");
     }

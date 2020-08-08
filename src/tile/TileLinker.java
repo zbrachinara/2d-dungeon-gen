@@ -19,7 +19,7 @@ public class TileLinker {
 
     static {
         try {
-            rootElement = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("src/tileLinks.xml")).getDocumentElement();
+            rootElement = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("tileLinks.xml")).getDocumentElement();
             blocksElements = rootElement.getElementsByTagName("blocks").item(0).getChildNodes();
 //            System.out.println(rootElement.getElementsByTagName("blocks").item(0).getNodeName());
             itemsElements = rootElement.getElementsByTagName("items").item(0).getChildNodes();
