@@ -1,10 +1,12 @@
 package logic;
 
 import graphics.CellLoader;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import main.Main;
 import tile.Avatar;
@@ -15,6 +17,9 @@ import tile.Tile;
 import javafx.scene.input.KeyEvent;
 
 import tile.blocks.Entrance;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +33,17 @@ public class Updater  {
     public static Avatar avatar = new Avatar();
     static Tile standingOn;
     static boolean isInventoryOpen = false;
+    static boolean isAdvNotifOpen = false;
     public static GridPane inventory = new GridPane();
+    public static StackPane advNotification;
+
+    static {
+        try {
+            advNotification = FXMLLoader.load(new File("resources/advNotification.fxml").toURI().toURL());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public static void update(KeyEvent event) {
@@ -37,13 +52,30 @@ public class Updater  {
         move(event);
         standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
-        if(standingOn instanceof Entrance) {
-            System.out.println("standing on entrance");
-        }
+        interactWithEntrance(event);
         if (!event.isConsumed()) {
             event.consume();
         }
 
+    }
+
+    private static boolean interactWithEntrance(KeyEvent event) {
+        if (standingOn instanceof Entrance ) {
+            if (event.getText().equals("SPACE")) {
+                // go to next room
+            } else {
+                if (!isAdvNotifOpen) {
+
+                    advNotification.setAlignment(Pos.CENTER);
+                    Main.root.getChildren().add(advNotification);
+
+                }
+            }
+        } else {
+            isAdvNotifOpen = false;
+            Main.root.getChildren().remove(advNotification);
+        }
+        return false;
     }
 
     private static boolean toggleInventory(javafx.scene.input.KeyEvent e) {
@@ -151,3 +183,6 @@ public class Updater  {
     }
 
 }
+
+
+

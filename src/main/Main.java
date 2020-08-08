@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tile.TileLinker;
 
+import java.io.IOException;
+
 import static logic.Updater.currentRoomID;
 import static logic.Updater.currentRoom;
 
