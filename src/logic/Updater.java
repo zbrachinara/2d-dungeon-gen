@@ -1,14 +1,13 @@
 package logic;
 
-import graphics.CellLoader;
 import tile.Avatar;
 import tile.Block;
 import tile.Item;
 import tile.Tile;
-import tile.blocks.Entrance;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javafx.scene.input.KeyEvent;
+
+import tile.blocks.Entrance;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,10 +22,10 @@ public class Updater  {
     static Tile standingOn;
     static boolean isInventoryOpen = false;
 
-    public static void update(javafx.scene.input.KeyEvent event) {
+    public static void update(KeyEvent event) {
 
         toggleInventory(event);
-        move(event.getCharacter().charAt(0));
+        move(event);
         standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
         if(standingOn instanceof Entrance) {
@@ -58,15 +57,15 @@ public class Updater  {
 
     }
 
-    private static boolean move(char keyInput) {
+    private static boolean move(KeyEvent keyInput) {
 
         Map<Character, Direction> characterDirectionMap = new HashMap<>();
-        characterDirectionMap.put('W', Direction.UP);
-        characterDirectionMap.put('S', Direction.DOWN);
-        characterDirectionMap.put('A', Direction.LEFT);
-        characterDirectionMap.put('D', Direction.RIGHT);
+        characterDirectionMap.put('w', Direction.UP);
+        characterDirectionMap.put('s', Direction.DOWN);
+        characterDirectionMap.put('a', Direction.LEFT);
+        characterDirectionMap.put('d', Direction.RIGHT);
 
-        Direction direction = characterDirectionMap.get(keyInput);
+        Direction direction = characterDirectionMap.get(keyInput.getText().charAt(0));
 
         if (isObstacle(direction)) {
             switch (direction) {
@@ -99,7 +98,7 @@ public class Updater  {
         }
 
         if (objectTo instanceof Block) {
-            if (!((Block) objectTo).canMoveThrough) return false;
+            return ((Block) objectTo).canMoveThrough;
         }
 
         return true;

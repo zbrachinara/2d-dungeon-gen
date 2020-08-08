@@ -8,7 +8,6 @@ import logic.Room;
 import logic.Updater;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tile.TileLinker;
@@ -60,6 +59,8 @@ public class Main extends Application { // main class
         Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
         currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
 
+
+
         CellLoader.loadAll();
         StackPane root = new StackPane();
         root.getChildren().add(CellLoader.gameDisplay);
@@ -67,9 +68,7 @@ public class Main extends Application { // main class
         primaryStage.setTitle("Hello World");
         Scene scene = new Scene(root, 740, 500);
         primaryStage.setScene(scene);
-        scene.setOnKeyPressed(keyEvent ->
-                Updater.update(keyEvent)
-                );
+        scene.setOnKeyPressed(Updater::update);
         primaryStage.show();
     }
 
