@@ -1,5 +1,6 @@
 package logic;
 
+import graphics.CellLoader;
 import tile.Avatar;
 import tile.Block;
 import tile.Item;
@@ -11,22 +12,7 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Updater implements KeyListener {
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        update(e);
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
+public class Updater  {
 
     public enum Direction {UP, DOWN, LEFT, RIGHT}
 
@@ -37,10 +23,10 @@ public class Updater implements KeyListener {
     static Tile standingOn;
     static boolean isInventoryOpen = false;
 
-    public static void update(KeyEvent event) {
+    public static void update(javafx.scene.input.KeyEvent event) {
 
         toggleInventory(event);
-        move(event.getKeyChar());
+        move(event.getCharacter().charAt(0));
         standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
         if(standingOn instanceof Entrance) {
@@ -49,18 +35,18 @@ public class Updater implements KeyListener {
 
     }
 
-    private static boolean toggleInventory(KeyEvent e) {
+    private static boolean toggleInventory(javafx.scene.input.KeyEvent e) {
 
         char invKeyChar = 'e';
 
         if (isInventoryOpen) {
-            if(e.getKeyChar() == invKeyChar) {
+            if(e.getCharacter().charAt(0) == invKeyChar) {
                 isInventoryOpen = false;
                 closeInventory();
             }
             e.consume();
         } else { // inventory is NOT open
-            if (e.getKeyChar() == invKeyChar) {
+            if (e.getCharacter().charAt(0) == invKeyChar) {
                 isInventoryOpen = true;
                 e.consume();
                 viewInventory();
@@ -75,27 +61,19 @@ public class Updater implements KeyListener {
     private static boolean move(char keyInput) {
 
         Map<Character, Direction> characterDirectionMap = new HashMap<>();
-        characterDirectionMap.put('w', Direction.UP);
-        characterDirectionMap.put('s', Direction.DOWN);
-        characterDirectionMap.put('a', Direction.LEFT);
-        characterDirectionMap.put('d', Direction.RIGHT);
+        characterDirectionMap.put('W', Direction.UP);
+        characterDirectionMap.put('S', Direction.DOWN);
+        characterDirectionMap.put('A', Direction.LEFT);
+        characterDirectionMap.put('D', Direction.RIGHT);
 
         Direction direction = characterDirectionMap.get(keyInput);
 
         if (isObstacle(direction)) {
             switch (direction) {
-                case UP:
-                    avatar.location[1]++;
-                    break;
-                case DOWN:
-                    avatar.location[1]--;
-                    break;
-                case LEFT:
-                    avatar.location[0]--;
-                    break;
-                case RIGHT:
-                    avatar.location[0]++;
-                    break;
+                case UP -> avatar.location[1]++;
+                case DOWN -> avatar.location[1]--;
+                case LEFT -> avatar.location[0]--;
+                case RIGHT -> avatar.location[0]++;
             }
             return true;
         }

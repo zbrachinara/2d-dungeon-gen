@@ -65,9 +65,12 @@ public class Main extends Application { // main class
         root.getChildren().add(CellLoader.gameDisplay);
         CellLoader.gameDisplay.setAlignment(Pos.CENTER);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 740, 500));
+        Scene scene = new Scene(root, 740, 500);
+        primaryStage.setScene(scene);
+        scene.setOnKeyPressed(keyEvent ->
+                Updater.update(keyEvent)
+                );
         primaryStage.show();
-
     }
 
 
