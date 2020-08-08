@@ -32,6 +32,9 @@ public class Updater  {
         if(standingOn instanceof Entrance) {
             System.out.println("standing on entrance");
         }
+        if (!event.isConsumed()) {
+            event.consume();
+        }
 
     }
 
@@ -77,12 +80,10 @@ public class Updater  {
                 case RIGHT -> difference[0] = 1;
             }
 
-            currentRoom.tiles[avatar.location[0]][avatar.location[1]] = null;
             avatar.location = new int[]{avatar.location[0] + difference[0], avatar.location[1] + difference[1]};
-            currentRoom.addTile(avatar.location[0], avatar.location[1], avatar);
             CellLoader.loadCell(avatar.location[0], avatar.location[1]);
             CellLoader.loadCell(avatar.location[0] - difference[0], avatar.location[1] - difference[1]);
-            
+
             return true;
         }
         return false;
@@ -99,15 +100,15 @@ public class Updater  {
             difference[0] = direction == Direction.RIGHT ? 1 : -1;
         }
 
-        Tile objectTo;
+        Tile tileTravellingTo;
         try {
-            objectTo = currentRoom.getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
+            tileTravellingTo = currentRoom.getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
 
-        if (objectTo instanceof Block) {
-            return ((Block) objectTo).canMoveThrough;
+        if (tileTravellingTo instanceof Block) {
+            return ((Block) tileTravellingTo).canMoveThrough;
         }
 
         return true;

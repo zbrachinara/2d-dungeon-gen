@@ -1,6 +1,7 @@
 package graphics;
 
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import logic.Updater;
 import tile.Tile;
 
@@ -11,9 +12,16 @@ public class CellLoader {
     public static void loadCell(int posX, int posY) {
         try {
             Tile currentTile = Updater.currentRoom.getTile(posX, posY);
-            gameDisplay.add(currentTile.load(), posX, posY);
+            StackPane loaded = currentTile.load();
+            if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {
+                loaded.getChildren().add(Updater.avatar.load());
+            }
         } catch (NullPointerException e) {
-            gameDisplay.add(Tile.loadBlank(), posX, posY);
+            StackPane loaded = Tile.loadBlank();
+            if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {
+                loaded.getChildren().add(Updater.avatar.load());
+            }
+            gameDisplay.add(loaded, posX, posY);
         }
     }
 

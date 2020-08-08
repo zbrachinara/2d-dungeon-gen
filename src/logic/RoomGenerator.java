@@ -17,11 +17,6 @@ public abstract class RoomGenerator {
         Room out = new Room(roomType);
         Random random = new Random();
 
-        // add the avatar
-        if (roomType == RoomType.STARTING_ROOM) {
-            out.addTile(10, 10, Updater.avatar);
-        }
-
         //TODO: add the entrances
         int[] bruh = {0, 0};
         out.addTile(0, 0, new Entrance(Directions.SOUTH, bruh));
