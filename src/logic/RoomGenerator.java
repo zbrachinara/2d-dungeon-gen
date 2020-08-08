@@ -14,6 +14,7 @@ import java.util.Random;
 
 public abstract class RoomGenerator {
 
+
     public static Room generateRoom(RoomType roomType) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Room out = new Room(roomType);
         Random random = new Random();
@@ -25,7 +26,7 @@ public abstract class RoomGenerator {
 
         //TODO: add the entrances
 
-        //out.addTile(0, 0,  );
+        ///out.addTile(0, 0, );
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
