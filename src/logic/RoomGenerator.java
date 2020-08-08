@@ -1,6 +1,6 @@
-package graphics;
+package logic;
 
-import graphics.Room.RoomType;
+import logic.Room.RoomType;
 
 import tile.Tile;
 import tile.TileLinker;

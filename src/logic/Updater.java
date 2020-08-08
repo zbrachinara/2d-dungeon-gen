@@ -1,4 +1,4 @@
-package graphics;
+package logic;
 
 import tile.Avatar;
 import tile.Block;

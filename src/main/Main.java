@@ -1,8 +1,8 @@
 package main;
 
 import tile.Avatar;
-import graphics.Room;
-import graphics.Updater;
+import logic.Room;
+import logic.Updater;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
