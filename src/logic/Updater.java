@@ -129,6 +129,8 @@ public class Updater  {
         if(standingOn instanceof Item) {
             avatar.pocket.add((Item) standingOn);
             ((Item) standingOn).inWorld = false;
+            currentRoom.tiles[avatar.location[0]][avatar.location[1]] = null;
+            CellLoader.loadCell(avatar.location[0], avatar.location[1]);
         }
     }
 
