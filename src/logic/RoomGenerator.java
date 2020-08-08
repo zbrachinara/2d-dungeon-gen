@@ -29,9 +29,9 @@ public abstract class RoomGenerator {
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
-        chanceMap.put("Axe", .5f);
-        chanceMap.put("Shield", .4f);
-        chanceMap.put("Sword:", .05f);
+        chanceMap.put("Axe", .1f);
+        chanceMap.put("Shield", .1f);
+        chanceMap.put("Sword", .1f);
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
