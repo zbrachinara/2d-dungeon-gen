@@ -15,7 +15,10 @@ import tile.TileLinker;
 import static logic.Updater.currentRoomID;
 import static logic.Updater.currentRoom;
 
-public class Main extends Application { // main class
+public class Main extends Application {
+
+    public static StackPane root = new StackPane();
+
 
     public static void do_nothing() {
 
@@ -62,10 +65,9 @@ public class Main extends Application { // main class
 
 
         CellLoader.loadAll();
-        StackPane root = new StackPane();
         root.getChildren().add(CellLoader.gameDisplay);
         CellLoader.gameDisplay.setAlignment(Pos.CENTER);
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Game");
         Scene scene = new Scene(root, 740, 500);
         primaryStage.setScene(scene);
         scene.setOnKeyPressed(Updater::update);

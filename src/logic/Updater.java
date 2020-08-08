@@ -1,6 +1,12 @@
 package logic;
 
 import graphics.CellLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
+import main.Main;
 import tile.Avatar;
 import tile.Block;
 import tile.Item;
@@ -22,6 +28,8 @@ public class Updater  {
     public static Avatar avatar = new Avatar();
     static Tile standingOn;
     static boolean isInventoryOpen = false;
+    public static GridPane inventory = new GridPane();
+
 
     public static void update(KeyEvent event) {
 
@@ -43,13 +51,13 @@ public class Updater  {
         char invKeyChar = 'e';
 
         if (isInventoryOpen) {
-            if(e.getCharacter().charAt(0) == invKeyChar) {
+            if(e.getText().charAt(0) == invKeyChar) {
                 isInventoryOpen = false;
                 closeInventory();
             }
             e.consume();
         } else { // inventory is NOT open
-            if (e.getCharacter().charAt(0) == invKeyChar) {
+            if (e.getText().charAt(0) == invKeyChar) {
                 isInventoryOpen = true;
                 e.consume();
                 viewInventory();
@@ -120,25 +128,26 @@ public class Updater  {
     private static void pickupItem() {
         if(standingOn instanceof Item) {
             avatar.pocket.add((Item) standingOn);
+            ((Item) standingOn).inWorld = false;
         }
-        System.out.println("picked up item");
     }
 
     private static void viewInventory() {
+        int columnsPerRow = 5;
         int index = 0;
         for(Item item : avatar.pocket) {
-            System.out.print(index);
-            System.out.println(item.toString());
+            Text text= new Text(item.name);
+            inventory.add(text, index%columnsPerRow, (int)Math.floor(index/columnsPerRow));
             index++;
         }
+        inventory.setAlignment(Pos.CENTER);
+        inventory.setStyle("-fx-background-color: rgba(100, 0, 0, 0.5);");
+        Main.root.getChildren().add(inventory);
     }
 
 
     private static void closeInventory() {
-
+        Main.root.getChildren().remove(inventory);
     }
 
 }
-
-
-
