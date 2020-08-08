@@ -28,7 +28,9 @@ public abstract class RoomGenerator {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (out.getTile(i, j) != null) {
-                    out.addTile(i, j, determineNormalTile(random.nextFloat(), chanceMap));
+                    Tile addedTile = determineNormalTile(random.nextFloat(), chanceMap);
+                    addedTile.location = new int[]{i, j};
+                    out.addTile(i, j, addedTile);
                 }
             }
         }
