@@ -3,7 +3,6 @@ package tile.blocks;
 import javafx.scene.image.Image;
 import tile.Block;
 
-
 public class Entrance extends Block {
     public Image texture;
 
@@ -23,5 +22,5 @@ public class Entrance extends Block {
                 break;
         }
     }
-    
+
 }

@@ -46,8 +46,6 @@ public class TileLinker {
             }
         }
 
-        main.Main.do_nothing(); // debugging
-
     }
 
     private static Node getFirstChildByName(Node parent, String find) {

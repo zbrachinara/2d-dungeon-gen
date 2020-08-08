@@ -1,13 +1,13 @@
 package main;
 
 import graphics.CellLoader;
+import javafx.geometry.Pos;
+import javafx.scene.layout.StackPane;
 import logic.RoomGenerator;
-import tile.Avatar;
 import logic.Room;
 import logic.Updater;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -57,9 +57,11 @@ public class Main extends Application { // main class
         Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
 
         CellLoader.loadAll();
-        Parent root = CellLoader.display;
+        StackPane root = new StackPane();
+        root.getChildren().add(CellLoader.gameDisplay);
+        CellLoader.gameDisplay.setAlignment(Pos.CENTER);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 740, 500));
         primaryStage.show();
 
     }

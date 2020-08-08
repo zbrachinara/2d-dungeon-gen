@@ -1,22 +1,19 @@
 package graphics;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import logic.Room;
 import logic.Updater;
 import tile.Tile;
 
 public class CellLoader {
 
-    public static GridPane display = new GridPane();
+    public static GridPane gameDisplay = new GridPane();
 
     public static void loadCell(int posX, int posY) {
         try {
             Tile currentTile = Updater.currentRoom.getTile(posX, posY);
-            display.add(currentTile.load(), posX, posY);
+            gameDisplay.add(currentTile.load(), posX, posY);
         } catch (NullPointerException e) {
-            display.add(Tile.loadBlank(), posX, posY);
+            gameDisplay.add(Tile.loadBlank(), posX, posY);
         }
     }
 

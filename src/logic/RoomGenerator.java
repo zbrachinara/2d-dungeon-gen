@@ -20,13 +20,13 @@ public abstract class RoomGenerator {
             out.addTile(10, 10, Updater.avatar);
         }
 
-        // add the entrances
+        //TODO: add the entrances
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
-        chanceMap.put("Axe", .1f);
-        chanceMap.put("Shield", .05f);
-        chanceMap.put("Sword:", .1f);
+        chanceMap.put("Axe", .5f);
+        chanceMap.put("Shield", .4f);
+        chanceMap.put("Sword:", .05f);
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -49,8 +49,12 @@ public abstract class RoomGenerator {
         Float chance = 1f;
         chanceMap = processChanceMap(chanceMap);
         for (String i : chanceMap.keySet()) {
-            if (chanceMap.get(i) > generated && chanceMap.get(i) < chance) {
-                out = (Tile) TileLinker.availableTiles.get(i).getDeclaredConstructor().newInstance();
+            try {
+                if (chanceMap.get(i) > generated && chanceMap.get(i) < chance) {
+                    out = (Tile) TileLinker.availableTiles.get(i).getDeclaredConstructor().newInstance();
+                }
+            } catch (NullPointerException e) {
+                out = null;
             }
         }
         return out;

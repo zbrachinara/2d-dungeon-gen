@@ -13,7 +13,8 @@ public abstract class Tile {
     public static Image back = new Image("resources/Grid_YES.png");
 
     public StackPane load() {
-        StackPane out = loadBlank();
+        StackPane out = new StackPane();
+        out.getChildren().add(new ImageView(back));
         out.getChildren().add(new ImageView(texture));
         return out;
     }
