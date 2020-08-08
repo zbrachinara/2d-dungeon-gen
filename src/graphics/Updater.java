@@ -1,18 +1,32 @@
 package graphics;
 
+import tile.Avatar;
 import tile.Block;
 import tile.Item;
 import tile.Tile;
 import tile.blocks.Entrance;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Updater {
+public class Updater implements KeyListener {
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+        update(e);
+    }
 
-    private static char inventoryKeyPress = 'e';
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 
     public enum Direction {UP, DOWN, LEFT, RIGHT}
 
@@ -24,24 +38,36 @@ public class Updater {
 
     public static void update(KeyEvent event) {
 
-        if(event.getKeyChar() == inventoryKeyPress && isInventoryOpen == false) {
-            isInventoryOpen = true;
-            event.consume();
-            viewInventory();
-        }
-
-        if(isInventoryOpen) {
-            if(event.getKeyChar() == inventoryKeyPress) {
-                isInventoryOpen = false;
-                closeInventory();
-            }
-        }
+        toggleInventory(event);
         move(event.getKeyChar());
         standingOn = rooms[currentRoom[0]][currentRoom[1]].getTile(avatar.location[0], avatar.location[1]);
         pickupItem();
         if(standingOn instanceof Entrance) {
             System.out.println("standing on entrance");
         }
+
+    }
+
+    private static boolean toggleInventory(KeyEvent e) {
+
+        char invKeyChar = 'e';
+
+        if (isInventoryOpen) {
+            if(e.getKeyChar() == invKeyChar) {
+                isInventoryOpen = false;
+                closeInventory();
+            }
+            e.consume();
+        } else { // inventory is NOT open
+            if (e.getKeyChar() == invKeyChar) {
+                isInventoryOpen = true;
+                e.consume();
+                viewInventory();
+                return true;
+            }
+            // pass the event to movement if not 'e'
+        }
+        return false;
 
     }
 

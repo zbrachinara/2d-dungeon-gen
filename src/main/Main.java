@@ -1,8 +1,7 @@
 package main;
 
-import graphics.Avatar;
+import tile.Avatar;
 import graphics.Room;
-import graphics.RoomGenerator;
 import graphics.Updater;
 
 import javafx.application.Application;
