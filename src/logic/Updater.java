@@ -71,6 +71,8 @@ public class Updater  {
 
         Direction direction = characterDirectionMap.get(keyInput.getText().charAt(0));
 
+        if (direction == null) return false;
+
         if (isObstacle(direction)) {
             int[] difference = new int[2];
             switch (direction) {
