@@ -26,8 +26,8 @@ public abstract class RoomGenerator {
         }
 
         //TODO: add the entrances
-        int[] bruh = new int[1];
-        out.addTile(0, 0, new Entrance(Directions.SOUTH, bruh[1]));
+        int[] bruh = {0, 0};
+        out.addTile(0, 0, new Entrance(Directions.SOUTH, bruh));
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();

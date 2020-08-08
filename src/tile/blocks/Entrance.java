@@ -5,7 +5,7 @@ import tile.Block;
 
 public class Entrance extends Block {
 
-    public Entrance(Directions direction, int location) {
+    public Entrance(Directions direction, int[] location) {
         // replaced getBackImage with new Image for now
         super("Entrance", new Image("resources/entrance.png"), location, true);
         Image texture;
