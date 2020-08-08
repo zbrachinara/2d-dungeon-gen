@@ -4,7 +4,7 @@ import tile.Tile;
 
 public class Room {
 
-    enum RoomType {
+    public enum RoomType {
         STARTING_ROOM,
         REGULAR_ROOM
     }

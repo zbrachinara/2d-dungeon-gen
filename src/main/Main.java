@@ -1,5 +1,7 @@
 package main;
 
+import graphics.CellLoader;
+import logic.RoomGenerator;
 import tile.Avatar;
 import logic.Room;
 import logic.Updater;
@@ -12,8 +14,6 @@ import javafx.stage.Stage;
 import tile.TileLinker;
 
 public class Main extends Application { // main class
-
-    public static Room[][] rooms = new Room[2][2];
 
     public static void do_nothing() {
 
@@ -48,16 +48,16 @@ public class Main extends Application { // main class
     public void start(Stage primaryStage) throws Exception {
 
         TileLinker.load();
-        Updater.rooms = rooms;
-        Updater.avatar = new Avatar();
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-//                rooms[i][j] = RoomGenerator.generateRoom();
+                Updater.rooms[i][j] = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM);
             }
         }
+        Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        CellLoader.loadAll();
+        Parent root = CellLoader.display;
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
