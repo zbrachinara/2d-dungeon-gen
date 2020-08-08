@@ -13,6 +13,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tile.TileLinker;
 
+import static logic.Updater.currentRoomID;
+import static logic.Updater.currentRoom;
+
 public class Main extends Application { // main class
 
     public static void do_nothing() {
@@ -55,6 +58,7 @@ public class Main extends Application { // main class
             }
         }
         Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
+        currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
 
         CellLoader.loadAll();
         StackPane root = new StackPane();

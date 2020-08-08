@@ -57,8 +57,7 @@ public abstract class RoomGenerator {
             try {
                 if (chanceMap.get(i) > generated && chanceMap.get(i) < chance) {
                     Class<?> tileClass = TileLinker.availableTiles.get(i);
-                    System.out.println(tileClass.getSuperclass().getName());
-                    instantiateTile(tileClass, position);
+                    out = instantiateTile(tileClass, position);
                     chance = chanceMap.get(i);
                 }
             } catch (NullPointerException ignored) {}

@@ -32,7 +32,7 @@ public class Updater implements KeyListener {
 
     public static int[] currentRoomID = new int[]{0, 0};
     public static Room[][] rooms = new Room[2][2];
-    public static Room currentRoom = rooms[currentRoomID[0]][currentRoomID[1]];
+    public static Room currentRoom;
     public static Avatar avatar = new Avatar();
     static Tile standingOn;
     static boolean isInventoryOpen = false;
