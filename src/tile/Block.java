@@ -27,7 +27,5 @@ public abstract class Block extends Tile {
                 grid = new Image("");
         }
         pane.add(new ImageView(grid), Xcoord, Ycoord);
-
-
     };
 }
