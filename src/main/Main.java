@@ -15,7 +15,7 @@ public class Main extends Application { // main class
 
     public static Room[][] rooms = new Room[2][2];
 
-    public static void do_nothing() {
+    //public static void do_nothing() {
 
         /*
         Now let me go on a little rant here.
@@ -42,7 +42,7 @@ public class Main extends Application { // main class
         You'd better believe it.
          */
 
-    }
+    //}
 
     @Override
     public void start(Stage primaryStage) throws Exception {
