@@ -4,8 +4,6 @@ import graphics.Room;
 import graphics.RoomGenerator;
 import graphics.Updater;
 
-import java.util.Random;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +17,31 @@ public class Main extends Application { // main class
 
     public static void do_nothing() {
 
+        /*
+        Now let me go on a little rant here.
+        This here function is my favorite function.
+        And no one is going to remove it.
+        NO
+        ONE
+        .
+        REMOVE
+        IT
+        .
+        It has:
+        0 errors
+        It gives me:
+        1 warning
+        It's predicted error rate is
+        NONE
+        ok?
+        so don't remove it
+        If you do
+        I will go after your family
+        And feed you to the digital dogs that I raise in my digital backyard
+        and they have this function too.
+        You'd better believe it.
+         */
+
     }
 
     @Override
@@ -26,7 +49,7 @@ public class Main extends Application { // main class
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                rooms[i][j] = RoomGenerator.generateRoom((long) (new Random().nextFloat() * Long.MAX_VALUE));
+                rooms[i][j] = RoomGenerator.generateRoom();
             }
         }
 
@@ -37,11 +60,6 @@ public class Main extends Application { // main class
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-
-        for (int i = 0; i < 100; i++) {
-            System.out.println((long) (new Random().nextFloat() * Long.MAX_VALUE));
-        }
-        System.out.println(Long.MAX_VALUE);
 
     }
 
