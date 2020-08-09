@@ -3,8 +3,8 @@ package main;
 import graphics.CellLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
-import logic.RoomGenerator;
 import logic.Room;
+import logic.RoomGenerator;
 import logic.Updater;
 
 import javafx.application.Application;
@@ -12,10 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tile.TileLinker;
 
-import java.io.IOException;
-
-import static logic.Updater.currentRoomID;
-import static logic.Updater.currentRoom;
+import java.lang.reflect.InvocationTargetException;
 
 public class Main extends Application {
 
@@ -56,21 +53,35 @@ public class Main extends Application {
 
         TileLinker.load();
 
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                Updater.rooms[i][j] = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM);
-            }
-        }
-        Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM);
-        currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
+//        for (int i = 0; i < 2; i++) {
+//            for (int j = 0; j < 2; j++) {
+//                Updater.rooms[i][j] = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM, new int[]{i, j});
+//            }
+//        }
+//        Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM, new int[]{0, 0});
+//        currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
 
+        Updater.currentRoom = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM, new int[]{0, 0});
         CellLoader.loadAll();
         root.getChildren().add(CellLoader.gameDisplay);
+        root.getChildren().add(logic.Counter.child);
         CellLoader.gameDisplay.setAlignment(Pos.CENTER);
         primaryStage.setTitle("Game");
         Scene scene = new Scene(root, 740, 500);
         primaryStage.setScene(scene);
-        scene.setOnKeyPressed(Updater::update);
+        scene.setOnKeyPressed(e -> {
+            try {
+                Updater.update(e);
+            } catch (NoSuchMethodException noSuchMethodException) {
+                noSuchMethodException.printStackTrace();
+            } catch (InstantiationException instantiationException) {
+                instantiationException.printStackTrace();
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            } catch (InvocationTargetException invocationTargetException) {
+                invocationTargetException.printStackTrace();
+            }
+        });
         primaryStage.show();
     }
 

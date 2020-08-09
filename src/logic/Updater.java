@@ -20,15 +20,33 @@ import tile.blocks.Entrance;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Updater  {
 
-    public enum Direction {UP, DOWN, LEFT, RIGHT}
+    public enum Direction {
+        UP, DOWN, LEFT, RIGHT;
 
-    public static int[] currentRoomID = new int[]{0, 0};
-    public static Room[][] rooms = new Room[2][2];
+        public static Direction opposite(Direction d) {
+            switch(d) {
+                case UP:
+                    return DOWN;
+                case RIGHT:
+                    return LEFT;
+                case LEFT:
+                    return RIGHT;
+                case DOWN:
+                    return UP;
+                default:
+                    throw new IllegalArgumentException("You didn't put in a direction");
+            }
+        }
+    }
+
+//    public static int[] currentRoomID = new int[]{0, 0};
+//    public static Room[][] rooms = new Room[2][2];
     public static Room currentRoom;
     public static Avatar avatar = new Avatar();
     static Tile standingOn;
@@ -46,7 +64,7 @@ public class Updater  {
     }
 
 
-    public static void update(KeyEvent event) {
+    public static void update(KeyEvent event) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
 
         System.out.println(event.getText());
 
@@ -61,7 +79,7 @@ public class Updater  {
 
     }
 
-    private static boolean interactWithEntrance(KeyEvent event) {
+    private static boolean interactWithEntrance(KeyEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         if (standingOn instanceof Entrance ) {
             if (event.getText().equals(" ")) {
                 return moveRooms(((Entrance) standingOn).direction);
@@ -80,24 +98,27 @@ public class Updater  {
         return false;
     }
 
-    public static boolean moveRooms(Direction direction) {
-        try {
-            switch (direction) {
-                case RIGHT:
-                    currentRoomID[0]++;
-                case LEFT:
-                    currentRoomID[0]--;
-                case UP:
-                    currentRoomID[1]--;
-                case DOWN:
-                    currentRoomID[1]++;
-            }
-            currentRoom = rooms[currentRoomID[0]][currentRoomID[1]];
-            CellLoader.loadAll();
-            return true;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
-        }
+    public static boolean moveRooms(Direction direction) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+//        try {
+//            switch (direction) {
+//                case RIGHT:
+//                    currentRoomID[0]++;
+//                case LEFT:
+//                    currentRoomID[0]--;
+//                case UP:
+//                    currentRoomID[1]--;
+//                case DOWN:
+//                    currentRoomID[1]++;
+//            }
+//            currentRoom = rooms[currentRoomID[0]][currentRoomID[1]];
+//            CellLoader.loadAll();
+//            return true;
+//        } catch (ArrayIndexOutOfBoundsException e) {
+//            return false;
+//        }
+        currentRoom = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM, new int[]{0, 0});
+        CellLoader.loadAll();
+        return true;
 
     }
 
@@ -186,6 +207,7 @@ public class Updater  {
             ((Item) standingOn).inWorld = false;
             currentRoom.tiles[avatar.location[0]][avatar.location[1]] = null;
             CellLoader.loadCell(avatar.location[0], avatar.location[1]);
+            Counter.increment();
         }
     }
 

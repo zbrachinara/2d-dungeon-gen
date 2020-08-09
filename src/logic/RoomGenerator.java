@@ -7,20 +7,66 @@ import tile.TileLinker;
 import tile.blocks.Entrance;
 
 import logic.Updater.Direction;
+import logic.Updater;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
 public abstract class RoomGenerator {
 
-    public static Room generateRoom(RoomType roomType) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public static Room generateRoom(RoomType roomType, int[] roomID) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Room out = new Room(roomType);
         Random random = new Random();
 
         //TODO: add the entrances
-        int[] bruh = {0, 0};
-        out.addTile(0, 0, new Entrance(Updater.Direction.DOWN, bruh));
+        int[][] checkIDs = new int[][]{
+                new int[]{roomID[0]-1, roomID[1]}, // LEFT
+                new int[]{roomID[0]+1, roomID[1]}, // RIGHT
+                new int[]{roomID[0], roomID[1]-1}, // UP
+                new int[]{roomID[0], roomID[1]+1}  // DOWN
+        };
+        int directionIndex = 0;
+
+        for (int[] ID: checkIDs) {
+//            try {
+//                Room adjRoom = Updater.rooms[ID[0]][ID[1]]; // the IDE will tell you to remove this
+                // DO NOT REMOVE THIS
+                // it is what will trigger the exception
+//                if ((adjRoom = Updater.rooms[ID[0]][ID[1]]) != null) {
+//
+//                    Tile[] edge = getEdge(adjRoom.tiles, Direction.opposite(checkDirection[directionIndex]), Tile.class);
+//                    for (int i = 0; i < edge.length; i++) {
+//                        if (edge[i] instanceof Entrance) {
+//                            switch (checkDirection[directionIndex]) {
+//                                case RIGHT:
+//
+//                                case LEFT:
+//                                case UP:
+//                                case DOWN:
+//                            }
+//                        }
+//                    }
+//
+//                } else {
+//
+//                }
+                int generated = random.nextInt(20);
+                switch (directionIndex) {
+                    case 0: // left
+                        out.addTile(0, generated, new Entrance(Direction.LEFT, new int[]{0, generated}));
+                    case 1: // right
+                        out.addTile(19, generated, new Entrance(Direction.RIGHT, new int[]{19, generated}));
+                    case 2: // up
+                        out.addTile(generated, 0, new Entrance(Direction.RIGHT, new int[]{generated, 0}));
+                    case 3: // down
+                        out.addTile(generated, 19, new Entrance(Direction.RIGHT, new int[]{generated, 19}));
+                }
+//                directionIndex++;
+//            } catch (ArrayIndexOutOfBoundsException ignored) { directionIndex++; }
+        }
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
@@ -41,6 +87,34 @@ public abstract class RoomGenerator {
         }
 
         return out;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> T[] getEdge(T[][] in, Direction direction, Class<T> t) {
+        switch(direction) {
+            case UP:
+                return in[0];
+            case DOWN:
+                return in[in.length-1];
+            case LEFT:
+                T[] out = (T[]) Array.newInstance(t, in.length);
+                int counter = 0;
+                for (T[] i: in) {
+                    out[counter] = i[0];
+                    counter++;
+                }
+                return out;
+            case RIGHT:
+                out = (T[]) Array.newInstance(t, in.length);
+                counter = 0;
+                for (T[] i: in) {
+                    out[counter] = i[in.length-1];
+                    counter++;
+                }
+                return out;
+            default:
+                throw new IllegalArgumentException("You didn't put in a valid direction (UP, DOWN, LEFT, RIGHT)");
+        }
     }
 
     private static Tile determineNormalTile(float generated, HashMap<String, Float> chanceMap, int[] position) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -70,7 +144,7 @@ public abstract class RoomGenerator {
         throw new TileNotFoundException("Go back and fix your stupid mistake (logic.RoomGenerator)");
     }
 
-    private static <T extends Object> HashMap<T, Float> processChanceMap(HashMap<T, Float> chanceMap) {
+    private static <T> HashMap<T, Float> processChanceMap(HashMap<T, Float> chanceMap) {
 
         HashMap<T, Float> outMap = new HashMap<>(chanceMap.size());
         Float totalChance = 0f;
