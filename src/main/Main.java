@@ -1,6 +1,7 @@
 package main;
 
 import graphics.CellLoader;
+import javafx.animation.AnimationTimer;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import logic.Room;
@@ -61,6 +62,7 @@ public class Main extends Application {
 //        Updater.rooms[0][0] = RoomGenerator.generateRoom(Room.RoomType.STARTING_ROOM, new int[]{0, 0});
 //        currentRoom = Updater.rooms[currentRoomID[0]][currentRoomID[1]]; // to ensure that the room is displayed correctly
 
+
         Updater.currentRoom = RoomGenerator.generateRoom(Room.RoomType.REGULAR_ROOM, new int[]{0, 0});
         CellLoader.loadAll();
         root.getChildren().add(CellLoader.gameDisplay);
@@ -82,6 +84,16 @@ public class Main extends Application {
                 invocationTargetException.printStackTrace();
             }
         });
+
+        logic.Timer gameTimer = new logic.Timer();
+        root.getChildren().add(gameTimer.timerDisplay);
+        new AnimationTimer(){
+            @Override
+            public void handle(long x) {
+                gameTimer.update();
+            }
+        }.start();
+
         primaryStage.show();
     }
 
