@@ -41,7 +41,7 @@ public class Updater  {
         try {
             advNotification = FXMLLoader.load(new File("resources/advNotification.fxml").toURI().toURL());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Advance notification was not found");
         }
     }
 

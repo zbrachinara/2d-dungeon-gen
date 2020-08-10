@@ -10,7 +10,7 @@ public abstract class Tile {
     public Image texture;
     public int[] location;
 
-    public static Image back = new Image("resources/Grid_YES.png");
+    public static Image back = new Image("resources/Grid_YES_tmp.png");
 
     public Tile(String name, Image texture, int[] location) {
         this.name = name;
