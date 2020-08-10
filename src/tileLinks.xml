@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <tiles>
     <items>
-        <item>
-            <location>
-                tile.items.Axe
-            </location>
-            <name>
-                Axe
-            </name>
-        </item>
-        <item>
-            <location>
-                tile.items.Shield
-            </location>
-            <name>
-                Shield
-            </name>
-        </item>
-        <item>
-            <location>
-                tile.items.Sword
-            </location>
-            <name>
-                Sword
-            </name>
-        </item>
     </items>
     <blocks>
         <block>
