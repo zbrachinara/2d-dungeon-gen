@@ -29,9 +29,9 @@ public abstract class Block extends Tile {
 //        pane.add(new ImageView(grid), Xcoord, Ycoord);
 //    };
 
-    public Block(String name, Image texture, int[] location, boolean canMoveThrough) {
+    public Block(String name, Image texture, int posX, int posY, boolean canMoveThrough) {
 
-        super(name, texture, location);
+        super(name, texture, posX, posY);
         this.canMoveThrough = canMoveThrough;
 
     }

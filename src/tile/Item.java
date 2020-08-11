@@ -6,9 +6,9 @@ public abstract class Item extends Tile {
 
     public boolean inWorld;
 
-    public Item(String name, Image texture, int[] location, boolean inWorld) {
+    public Item(String name, Image texture, int posX, int posY, boolean inWorld) {
 
-        super(name, texture, location);
+        super(name, texture, posX, posY);
         this.inWorld = inWorld;
 
     }

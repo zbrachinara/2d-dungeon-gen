@@ -8,14 +8,16 @@ public abstract class Tile {
 
     public String name;
     public Image texture;
-    public int[] location;
+    public int posX;
+    public int posY;
 
     public static Image back = new Image("resources/Grid_YES_tmp.png");
 
-    public Tile(String name, Image texture, int[] location) {
+    public Tile(String name, Image texture, int posX, int posY) {
         this.name = name;
         this.texture = texture;
-        this.location = location;
+        this.posX = posX;
+        this.posY = posY;
     }
 
     public StackPane load() {

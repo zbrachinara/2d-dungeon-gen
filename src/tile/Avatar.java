@@ -10,7 +10,7 @@ public class Avatar extends Tile {
 
     public Avatar() {
 
-        super("Avatar", new Image("resources/Avatar_tmp.png"), new int[]{10, 10});
+        super("Avatar", new Image("resources/Avatar_tmp.png"), 10, 10);
 
     }
 

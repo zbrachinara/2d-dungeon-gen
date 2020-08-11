@@ -8,9 +8,9 @@ public class Entrance extends Block {
 
     public Direction direction;
 
-    public Entrance(Direction direction, int[] location) {
+    public Entrance(Direction direction, int posX, int posY) {
         // replaced getBackImage with new Image for now
-        super("Entrance", new Image("resources/entrance_tmp.png"), location, true);
+        super("Entrance", new Image("resources/entrance_tmp.png"), posX, posY, true);
         this.direction = direction;
 
     }

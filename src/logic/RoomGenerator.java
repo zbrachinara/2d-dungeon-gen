@@ -18,9 +18,7 @@ public abstract class RoomGenerator {
         Room out = new Room(roomType);
         Random random = new Random();
 
-        //TODO: add the entrances
-        int[] bruh = {0, 0};
-        out.addTile(0, 0, new Entrance(Updater.Direction.DOWN, bruh));
+        // TODO: Generate entrances
 
         // chance of each object spawned
         HashMap<String, Float> chanceMap = new HashMap<>();
@@ -33,7 +31,8 @@ public abstract class RoomGenerator {
                 if (out.getTile(i, j) == null) {
                     Tile addedTile = determineNormalTile(random.nextFloat(), chanceMap, new int[]{i, j});
                     if (addedTile != null) {
-                        addedTile.location = new int[]{i, j};
+                        addedTile.posX = i;
+                        addedTile.posY = j;
                         out.addTile(i, j, addedTile);
                     }
                 }

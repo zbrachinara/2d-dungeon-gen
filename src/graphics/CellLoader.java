@@ -13,13 +13,13 @@ public class CellLoader {
         try {
             Tile currentTile = Updater.currentRoom.getTile(posX, posY);
             StackPane loaded = currentTile.load();
-            if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {
+            if (Updater.avatar.posX == posX && Updater.avatar.posY == posY) {
                 loaded.getChildren().add(Updater.avatar.load());
             }
             gameDisplay.add(loaded, posX, posY);
         } catch (NullPointerException e) {
             StackPane loaded = Tile.loadBlank();
-            if (Updater.avatar.location[0] == posX && Updater.avatar.location[1] == posY) {
+            if (Updater.avatar.posX == posX && Updater.avatar.posY == posY) {
                 loaded.getChildren().add(Updater.avatar.load());
             }
             gameDisplay.add(loaded, posX, posY);

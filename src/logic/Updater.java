@@ -52,7 +52,7 @@ public class Updater  {
 
         toggleInventory(event);
         move(event);
-        standingOn = currentRoom.getTile(avatar.location[0], avatar.location[1]);
+        standingOn = currentRoom.getTile(avatar.posX, avatar.posY);
         pickupItem();
         interactWithEntrance(event);
         if (!event.isConsumed()) {
@@ -145,9 +145,10 @@ public class Updater  {
                 case RIGHT -> difference[0] = 1;
             }
 
-            avatar.location = new int[]{avatar.location[0] + difference[0], avatar.location[1] + difference[1]};
-            CellLoader.loadCell(avatar.location[0], avatar.location[1]);
-            CellLoader.loadCell(avatar.location[0] - difference[0], avatar.location[1] - difference[1]);
+            avatar.posX = avatar.posX + difference[0];
+            avatar.posY = avatar.posY + difference[1];
+            CellLoader.loadCell(avatar.posX, avatar.posY);
+            CellLoader.loadCell(avatar.posX - difference[0], avatar.posY - difference[1]);
 
             return true;
         }
@@ -167,7 +168,7 @@ public class Updater  {
 
         Tile tileTravellingTo;
         try {
-            tileTravellingTo = currentRoom.getTile(avatar.location[0] + difference[0], avatar.location[1] + difference[1]);
+            tileTravellingTo = currentRoom.getTile(avatar.posX + difference[0], avatar.posY + difference[1]);
         } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
@@ -184,8 +185,8 @@ public class Updater  {
         if(standingOn instanceof Item) {
             avatar.pocket.add((Item) standingOn);
             ((Item) standingOn).inWorld = false;
-            currentRoom.tiles[avatar.location[0]][avatar.location[1]] = null;
-            CellLoader.loadCell(avatar.location[0], avatar.location[1]);
+            currentRoom.tiles[avatar.posX][avatar.posY] = null;
+            CellLoader.loadCell(avatar.posX, avatar.posY);
         }
     }
 
