@@ -4,13 +4,13 @@ import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
-public class Avatar extends Tile {
+public class Avatar extends Entity {
 
     public ArrayList<Item> pocket = new ArrayList<>();
 
-    public Avatar() {
+    public Avatar(int posX, int posY) {
 
-        super("Avatar", new Image("resources/Avatar_tmp.png"), 10, 10);
+        super("Avatar", new Image("resources/Avatar_tmp.png"), posX, posY);
 
     }
 
